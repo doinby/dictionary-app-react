@@ -1,3 +1,11 @@
+import Header from './components/Header';
+import Searcn from './components/Search';
+
 export default function App() {
-	return <p className='text-green-500'>Hello World</p>;
+	return (
+		<>
+			<Header />
+			<Searcn />
+		</>
+	);
 }
