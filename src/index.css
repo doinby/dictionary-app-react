@@ -6,7 +6,14 @@
 @tailwind utilities;
 
 @layer base {
-	html {
+	/* html {
 		font-family: 'Inter', sans-serif;
-	}
+	} */
+}
+
+@theme {
+	--font-sans: 'Inter', sans-serif;
+	--font-serif: 'Lora', serif;
+	--font-mono: 'Inconsolata', monospace;
+	--color-lavender: #a445ed;
 }

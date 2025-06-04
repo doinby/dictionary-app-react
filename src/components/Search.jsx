@@ -1,9 +1,10 @@
 import Entry from './Entry';
-import data from '../data.json';
 import { useState } from 'react';
+import data from '../data.js';
 
 export default function Searcn() {
 	const [query, setQuery] = useState('hello');
+	// const [data, setData] = useState(JSON.parse(word));
 
 	return (
 		<>
