@@ -6,9 +6,26 @@
 @tailwind utilities;
 
 @layer base {
-	/* html {
-		font-family: 'Inter', sans-serif;
-	} */
+	html,
+	body,
+	#root {
+		@apply h-full;
+	}
+
+	#root {
+		@apply flex flex-col;
+	}
+
+	nav,
+	main,
+	footer {
+		@apply mx-24;
+	}
+
+	nav,
+	footer {
+		@apply py-8;
+	}
 }
 
 @theme {
