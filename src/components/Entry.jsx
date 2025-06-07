@@ -2,11 +2,7 @@ import EntryDefinition from './EntryDefinition';
 import EntryHeader from './EntryHeader';
 
 export default function Entry({ data }) {
-	const { word, phonetic, phonetics, origin, meanings } = data[0];
-
-	function display(property) {
-		return !property ? 'hidden' : 'block';
-	}
+	const { word, phonetic, phonetics, origin, meanings } = data ? data[0] : {};
 
 	return (
 		<article className='space-y-6'>

@@ -2,7 +2,6 @@ import { getDisplayStyle } from '../ultils/ultils';
 import EntrySynonym from './EntrySynonym';
 
 export default function EntryDefinition({ meanings }) {
-	// console.log('meanings:', meanings);
 	return (
 		<>
 			{meanings.map(
