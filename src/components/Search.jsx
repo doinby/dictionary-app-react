@@ -5,19 +5,16 @@ import searchIcon from '../assets/images/icon-search.svg';
 
 export default function Search() {
 	const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
-	const [query, setQuery] = useState('keyboard');
+	const [query, setQuery] = useState('');
 
-	const { isPending, error, data } = useQuery({
-		queryKey: ['repoData'],
-		queryFn: () => fetch(URL + query).then((res) => res.json()),
+	const { isPending, isSuccess, error, data } = useQuery({
+		queryKey: ['query', query],
+		queryFn: () => {
+			return fetch(URL + query).then((res) => res.json());
+		},
+		// Disables fetch until query changes
+		enabled: !!query,
 	});
-
-	if (isPending) return <main className='grow'>Loading...</main>;
-
-	if (error)
-		return (
-			<main className='grow'>{`An error has occured ${error.message}`}</main>
-		);
 
 	function handleChange(e) {
 		setQuery(e.target.value);
@@ -32,7 +29,7 @@ export default function Search() {
 					className='w-full px-4 py-2 rounded-md bg-slate-200'
 				/>
 			</form>
-			<Entry data={data} />
+			{isPending ? 'Loading...' : <Entry data={data} error={error} />}
 		</main>
 	);
 }
