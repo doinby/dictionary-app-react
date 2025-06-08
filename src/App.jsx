@@ -10,7 +10,7 @@ export default function App() {
 	const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 	const [query, setQuery] = useState('');
 
-	const { isSuccess, error, data } = useQuery({
+	const { isLoading, isFetched, error, data } = useQuery({
 		queryKey: ['query', query],
 		queryFn: async () => {
 			// return fetch(URL + query).then((res) => res.json());
@@ -23,12 +23,25 @@ export default function App() {
 	});
 	console.log(error?.message);
 
+	if (isLoading) {
+		return (
+			<>
+				<Header />
+				<main className='grow space-y-12'>
+					<Searcn setQuery={setQuery} />
+					<>Loading</>
+				</main>
+				<Footer />
+			</>
+		);
+	}
+
 	return (
 		<>
 			<Header />
 			<main className='grow space-y-12'>
 				<Searcn setQuery={setQuery} />
-				{isSuccess ? <Entry data={data} /> : <>Error</>}
+				{isFetched ? <Entry data={data} error={error} /> : <></>}
 			</main>
 			<Footer />
 		</>
