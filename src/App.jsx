@@ -21,7 +21,6 @@ export default function App() {
 		// Disables fetch until query changes
 		enabled: !!query,
 	});
-	console.log(error?.message);
 
 	if (isLoading) {
 		return (
