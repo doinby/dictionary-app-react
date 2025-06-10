@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Header from './components/Header';
+import axios from 'axios';
+import HomeLayout from './layouts/HomeLayout';
 import Searcn from './components/Search';
 import Entry from './components/Entry';
-import Footer from './components/Footer';
-import axios from 'axios';
 
 export default function App() {
 	const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
@@ -13,7 +12,6 @@ export default function App() {
 	const { isLoading, isFetched, error, data } = useQuery({
 		queryKey: ['query', query],
 		queryFn: async () => {
-			// return fetch(URL + query).then((res) => res.json());
 			const res = await axios.get(URL + query);
 			const data = await res.data;
 			return data;
@@ -24,25 +22,17 @@ export default function App() {
 
 	if (isLoading) {
 		return (
-			<>
-				<Header />
-				<main className='grow space-y-12'>
-					<Searcn setQuery={setQuery} />
-					<>Loading</>
-				</main>
-				<Footer />
-			</>
+			<HomeLayout>
+				<Searcn setQuery={setQuery} />
+				<>Loading</>
+			</HomeLayout>
 		);
 	}
 
 	return (
-		<>
-			<Header />
-			<main className='grow space-y-12'>
-				<Searcn setQuery={setQuery} />
-				{isFetched ? <Entry data={data} error={error} /> : <></>}
-			</main>
-			<Footer />
-		</>
+		<HomeLayout>
+			<Searcn setQuery={setQuery} />
+			{isFetched ? <Entry data={data} error={error} /> : <></>}
+		</HomeLayout>
 	);
 }
