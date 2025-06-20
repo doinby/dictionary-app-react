@@ -3,13 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import HomeLayout from './layouts/HomeLayout';
 import Searcn from './components/Search';
+import Loading from './components/Loading';
 import Entry from './components/Entry';
+import Error from './components/Error';
 
 export default function App() {
 	const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 	const [query, setQuery] = useState('');
 
-	const { isLoading, isFetched, error, data } = useQuery({
+	const { isLoading, isSuccess, isError, error, data } = useQuery({
 		queryKey: ['query', query],
 		queryFn: async () => {
 			const res = await axios.get(URL + query);
@@ -20,19 +22,12 @@ export default function App() {
 		enabled: !!query,
 	});
 
-	if (isLoading) {
-		return (
-			<HomeLayout>
-				<Searcn setQuery={setQuery} />
-				<>Loading</>
-			</HomeLayout>
-		);
-	}
-
 	return (
 		<HomeLayout>
 			<Searcn setQuery={setQuery} />
-			{isFetched ? <Entry data={data} error={error} /> : <></>}
+			{isLoading && <Loading />}
+			{isSuccess && <Entry data={data} />}
+			{isError && <Error error={error} />}
 		</HomeLayout>
 	);
 }

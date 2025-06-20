@@ -1,18 +1,22 @@
 import playBtn from '../assets/images/icon-play.svg';
-import { getDisplayStyle } from '../ultils/ultils';
 
-export default function EntryHeader({ word, phonetic }) {
+export default function EntryHeader({ word, phonetics }) {
 	return (
-		<div className='flex justify-between'>
-			<div>
-				<h2 className='text-4xl font-bold'>{word}</h2>
-				<p
-					className={`${getDisplayStyle(phonetic)} text-lavender`}
-				>{`${phonetic}`}</p>
+		<div className='space-y-6'>
+			<h2 className='text-4xl font-bold'>{word}</h2>
+			<div className='flex gap-8'>
+				{phonetics.map((phonetic, idx) => {
+					if (!phonetic.text || !phonetic.audio) {
+						return;
+					}
+					return (
+						<div key={`${word}-${idx}`} className='flex gap-2 items-center'>
+							<p className='text-lavender'>{phonetic.text}</p>
+							<img src={playBtn} className='w-6' />
+						</div>
+					);
+				})}
 			</div>
-			<button>
-				<img src={playBtn} />
-			</button>
 		</div>
 	);
 }
