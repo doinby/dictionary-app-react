@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import darkMode from '../assets/images/icon-moon.svg';
 import { ThemeContext } from '../ultils/ultils';
 
-export default function ThemeButton() {
+export default function ThemeSwitcher() {
 	const { theme, setTheme } = useContext(ThemeContext);
 
 	function handleClick() {

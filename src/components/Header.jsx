@@ -1,6 +1,6 @@
 import logo from '../assets/images/logo.svg';
 import FontMenu from './FontMenu';
-import ThemeButton from './ThemeButton';
+import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
 	return (
@@ -8,7 +8,7 @@ export default function Header() {
 			<img src={logo} />
 			<div className='flex gap-6 items-center'>
 				<FontMenu />
-				<ThemeButton />
+				<ThemeSwitcher />
 			</div>
 		</nav>
 	);
