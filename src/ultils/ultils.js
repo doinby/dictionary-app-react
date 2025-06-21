@@ -1,8 +1,10 @@
 import { createContext } from 'react';
 
 export const ThemeContext = createContext({
-	font: 'font-san',
+	font: '',
 	setFont: () => {},
+	theme: '',
+	setTheme: () => {},
 });
 
 export function getDisplayStyle(object) {

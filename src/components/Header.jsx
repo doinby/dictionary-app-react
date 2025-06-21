@@ -1,6 +1,6 @@
 import logo from '../assets/images/logo.svg';
-import darkMode from '../assets/images/icon-moon.svg';
 import FontMenu from './FontMenu';
+import ThemeButton from './ThemeButton';
 
 export default function Header() {
 	return (
@@ -8,7 +8,7 @@ export default function Header() {
 			<img src={logo} />
 			<div className='flex gap-6 items-center'>
 				<FontMenu />
-				<img src={darkMode} className='h-5' />
+				<ThemeButton />
 			</div>
 		</nav>
 	);

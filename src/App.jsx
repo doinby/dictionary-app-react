@@ -21,6 +21,7 @@ export default function App() {
 		// Disables fetch until query changes
 		enabled: !!query,
 	});
+	// console.log(localStorage.getItem('theme'));
 
 	return (
 		<HomeLayout>
