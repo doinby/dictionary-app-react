@@ -1,10 +1,9 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../ultils/ultils';
-import darkMode from '../assets/images/icon-moon.svg';
 import { Switch } from '@headlessui/react';
 
 export default function ThemeSwitcher() {
-	const { theme, setTheme } = useContext(ThemeContext);
+	const { theme, setTheme, themeIcon } = useContext(ThemeContext);
 	const isChecked = theme === 'dark' ? true : false;
 
 	function handleOnChange() {
@@ -21,11 +20,7 @@ export default function ThemeSwitcher() {
 			>
 				<span className='size-4 translate-x-1 rounded-full bg-white transition group-data-checked:translate-x-6' />
 			</Switch>
-			<img
-				id='dark-mode-icon'
-				src={darkMode}
-				className='h-5 dark:fill-lavender'
-			/>
+			<img id='dark-mode-icon' src={themeIcon} className='h-5' />
 		</div>
 	);
 }

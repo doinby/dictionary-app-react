@@ -5,6 +5,7 @@ export const ThemeContext = createContext({
 	setFont: () => {},
 	theme: '',
 	setTheme: () => {},
+	themeIcon: '',
 });
 
 export function getDisplayStyle(object) {
