@@ -1,5 +1,7 @@
 import { createContext } from 'react';
 
+export const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+
 export const ThemeContext = createContext({
 	font: '',
 	setFont: () => {},
@@ -8,13 +10,13 @@ export const ThemeContext = createContext({
 	themeIcon: '',
 });
 
-export function getDisplayStyle(object) {
-	if (!object?.length) {
-		return 'hidden';
-	}
+// export function getDisplayStyle(object) {
+// 	if (!object?.length) {
+// 		return 'hidden';
+// 	}
 
-	return !object ? 'hidden' : 'block';
-}
+// 	return !object ? 'hidden' : 'block';
+// }
 
 export const FONTS = [
 	{ name: 'Serif', ref: 'font-serif' },

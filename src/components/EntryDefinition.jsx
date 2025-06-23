@@ -1,4 +1,3 @@
-import { getDisplayStyle } from '../ultils/ultils';
 import EntrySynonym from './EntrySynonym';
 
 export default function EntryDefinition({ meanings }) {
@@ -13,17 +12,15 @@ export default function EntryDefinition({ meanings }) {
 				}) => {
 					return (
 						<div key={partOfSpeech} className='space-y-6'>
-							<fieldset className='border-t-1 border-slate-200'>
+							<fieldset className='border-t-1 border-slate-200 dark:border-slate-800'>
 								<legend className='text-lg font-bold italic'>
 									{partOfSpeech}
 								</legend>
 							</fieldset>
-							<ul className='space-y-3 list-disc list-inside'>
-								<li className='list-none text-lg text-slate-500'>Meaning</li>
-								<li className=''>{definition}</li>
-								<li className={`${getDisplayStyle(example)}`}>
-									<q className='ml-4 text-slate-500'>{example}</q>
-								</li>
+							<h3 className='list-none text-lg text-slate-500'>Meaning</h3>
+							<ul className='ml-4 space-y-3 list-disc list-inside'>
+								<li>{definition}</li>
+								{example && <q className='ml-3 text-slate-500'>{example}</q>}
 							</ul>
 							<EntrySynonym synonyms={synonyms} />
 							<EntrySynonym antonyms={antonyms} />

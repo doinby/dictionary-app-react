@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { URL } from './ultils/ultils';
 import HomeLayout from './layouts/HomeLayout';
 import Searcn from './components/Search';
 import Loading from './components/Loading';
@@ -8,7 +9,7 @@ import Entry from './components/Entry';
 import Error from './components/Error';
 
 export default function App() {
-	const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+	// const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 	const [query, setQuery] = useState('');
 
 	const { isLoading, isSuccess, isError, error, data } = useQuery({
