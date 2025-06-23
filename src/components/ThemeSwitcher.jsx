@@ -16,7 +16,7 @@ export default function ThemeSwitcher() {
 			<Switch
 				checked={isChecked}
 				onChange={handleOnChange}
-				className='group inline-flex h-6 w-11 items-center rounded-full bg-slate-300 transition data-checked:bg-lavender'
+				className='group inline-flex h-6 w-11 items-center rounded-full bg-slate-400 transition data-checked:bg-lavender'
 			>
 				<span className='size-4 translate-x-1 rounded-full bg-white transition group-data-checked:translate-x-6' />
 			</Switch>
