@@ -7,6 +7,7 @@ import Searcn from './components/Search';
 import Loading from './components/Loading';
 import Entry from './components/Entry';
 import Error from './components/Error';
+import { Route, Routes } from 'react-router';
 
 export default function App() {
 	const [query, setQuery] = useState('');
@@ -24,11 +25,22 @@ export default function App() {
 	});
 
 	return (
-		<HomeLayout>
-			<Searcn query={query} setQuery={setQuery} />
-			{isLoading && <Loading />}
-			{isSuccess && <Entry data={data} setQuery={setQuery} />}
-			{isError && <Error error={error} />}
-		</HomeLayout>
+		// <HomeLayout>
+		// 	<Searcn query={query} setQuery={setQuery} />
+		// 	{isLoading && <Loading />}
+		// 	{isSuccess && <Entry data={data} setQuery={setQuery} />}
+		// 	{isError && <Error error={error} />}
+		// </HomeLayout>
+		<Routes>
+			<Route
+				path='/'
+				element={<HomeLayout query={query} setQuery={setQuery} />}
+			>
+				<Route
+					index
+					element={isSuccess && <Entry data={data} setQuery={setQuery} />}
+				/>
+			</Route>
+		</Routes>
 	);
 }

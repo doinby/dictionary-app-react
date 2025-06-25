@@ -4,8 +4,10 @@ import Footer from '../components/Footer';
 import { ThemeContext } from '../ultils/ultils';
 import moonIcon from '../assets/images/icon-moon.svg';
 import moonIconDark from '../assets/images/icon-moon-dark.svg';
+import { Outlet } from 'react-router';
+import Search from '../components/Search';
 
-export default function HomeLayout({ children }) {
+export default function HomeLayout({ query, setQuery }) {
 	const isDarkMode =
 		localStorage.theme === 'dark' ||
 		(!('theme' in localStorage) &&
@@ -43,7 +45,10 @@ export default function HomeLayout({ children }) {
 			}}
 		>
 			<Header />
-			<main className={`grow space-y-12 ${font}`}>{children}</main>
+			<main className={`grow space-y-12 ${font}`}>
+				<Search query={query} setQuery={setQuery} />
+				<Outlet />
+			</main>
 			<Footer />
 		</ThemeContext>
 	);
