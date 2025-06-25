@@ -10,7 +10,6 @@ import Error from './components/Error';
 
 export default function App() {
 	const [query, setQuery] = useState('');
-	// console.log('query:', query);
 
 	const { isLoading, isSuccess, isError, error, data } = useQuery({
 		queryKey: ['query', query],
@@ -19,10 +18,10 @@ export default function App() {
 			const data = await res.data;
 			return data;
 		},
+		retry: 1,
 		// Disables fetch until query changes
 		enabled: !!query,
 	});
-	// console.log(localStorage.getItem('theme'));
 
 	return (
 		<HomeLayout>
