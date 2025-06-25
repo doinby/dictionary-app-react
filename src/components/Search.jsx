@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import searchIcon from '../assets/images/icon-search.svg';
 import { Input } from '@headlessui/react';
+import { useEffect } from 'react';
 
-export default function Search({ setQuery }) {
+export default function Search({ query, setQuery }) {
 	const [input, setInput] = useState('');
+
+	useEffect(() => {
+		setInput(query);
+	}, [query]);
 
 	function handleChange(e) {
 		setInput(e.target.value);

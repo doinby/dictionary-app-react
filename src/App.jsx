@@ -10,6 +10,7 @@ import Error from './components/Error';
 
 export default function App() {
 	const [query, setQuery] = useState('');
+	// console.log('query:', query);
 
 	const { isLoading, isSuccess, isError, error, data } = useQuery({
 		queryKey: ['query', query],
@@ -25,9 +26,9 @@ export default function App() {
 
 	return (
 		<HomeLayout>
-			<Searcn setQuery={setQuery} />
+			<Searcn query={query} setQuery={setQuery} />
 			{isLoading && <Loading />}
-			{isSuccess && <Entry data={data} />}
+			{isSuccess && <Entry data={data} setQuery={setQuery} />}
 			{isError && <Error error={error} />}
 		</HomeLayout>
 	);

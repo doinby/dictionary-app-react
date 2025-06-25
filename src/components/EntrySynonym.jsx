@@ -1,4 +1,4 @@
-export default function EntrySynonym({ synonyms, antonyms }) {
+export default function EntrySynonym({ synonyms, antonyms, setQuery }) {
 	function displaySynonyms(arr) {
 		return (
 			arr
@@ -6,9 +6,13 @@ export default function EntrySynonym({ synonyms, antonyms }) {
 				.filter((item, index) => arr.indexOf(item) === index)
 				// Map words and add hyperlink
 				.map((word) => (
-					<p key={word} className='text-lavender'>
+					<button
+						key={word}
+						onClick={() => setQuery(word)}
+						className='text-lavender'
+					>
 						{word}
-					</p>
+					</button>
 				))
 		);
 	}
