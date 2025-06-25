@@ -23,7 +23,13 @@ export default function FontMenu() {
 			>
 				{fontOptions.map(({ name: label, ref }) => (
 					<MenuItem key={ref}>
-						<button onClick={() => setFont(ref)} className='px-4 py-3 '>
+						<button
+							onClick={() => {
+								setFont(ref);
+								localStorage.font = ref;
+							}}
+							className='px-4 py-3 '
+						>
 							{label}
 						</button>
 					</MenuItem>

@@ -18,13 +18,9 @@ export default function HomeLayout({ children }) {
 		isDarkMode ? moonIconDark : moonIcon
 	);
 
-	// console.log(localStorage.theme);
-
-	// console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-	// Add or remove dark class when theme variable changes
 	useEffect(() => {
 		const rootElement = document.getElementsByTagName('html')[0];
+		// Add or remove dark class when theme variable changes
 		if (theme === 'light') {
 			rootElement.classList.remove('dark');
 			setThemeIcon(moonIcon);
@@ -33,7 +29,8 @@ export default function HomeLayout({ children }) {
 			setThemeIcon(moonIconDark);
 		}
 		localStorage.theme = theme;
-	}, [theme]);
+		localStorage.font !== font && setFont(localStorage.font);
+	}, [theme, font]);
 
 	return (
 		<ThemeContext
