@@ -16,7 +16,7 @@ export default function Search({ setQuery }) {
 
 	return (
 		<form onSubmit={handleSubmit} className='relative flex items-center'>
-			<button type='submit' className='absolute right-3 cursor-pointer'>
+			<button type='submit' className='absolute right-3 '>
 				<img src={searchIcon} className='h-3.5' />
 			</button>
 			<Input

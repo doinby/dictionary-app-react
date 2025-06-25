@@ -25,6 +25,10 @@
 	footer {
 		@apply py-8;
 	}
+
+	button {
+		@apply cursor-pointer;
+	}
 }
 
 @theme {

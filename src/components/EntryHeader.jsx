@@ -12,10 +12,7 @@ export default function EntryHeader({ word, phonetics }) {
 					return (
 						<div key={`${word}-${idx}`} className='flex gap-2 items-center'>
 							<p className='text-lavender'>{phonetic.text}</p>
-							<button
-								onClick={() => new Audio(phonetic.audio).play()}
-								className='cursor-pointer'
-							>
+							<button onClick={() => new Audio(phonetic.audio).play()}>
 								<img
 									src={playBtn}
 									className='w-6 dark:brightness-200 dark:hue-rotate-200'
