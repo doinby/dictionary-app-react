@@ -9,7 +9,6 @@ import Entry from './components/Entry';
 import Error from './components/Error';
 
 export default function App() {
-	// const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 	const [query, setQuery] = useState('');
 
 	const { isLoading, isSuccess, isError, error, data } = useQuery({

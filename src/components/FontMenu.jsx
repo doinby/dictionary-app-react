@@ -11,17 +11,22 @@ export default function FontMenu() {
 
 	return (
 		<Menu>
-			<MenuButton className='px-3 py-2 w-[132px] flex gap-2 items-baseline justify-end cursor-pointer'>
+			<MenuButton
+				className={`px-3 py-2 w-[132px] flex gap-2 items-baseline justify-end cursor-pointer ${font}`}
+			>
 				{menuLabel}
 				<img src={arrowDown} className='w-4' />
 			</MenuButton>
 			<MenuItems
 				anchor='bottom'
-				className='flex flex-col items-start rounded cursor-pointer bg-white shadow dark:bg-lavender dark:text-white'
+				className={`flex flex-col items-start rounded cursor-pointer bg-white shadow dark:bg-lavender dark:text-white ${font}`}
 			>
 				{fontOptions.map(({ name: label, ref }) => (
 					<MenuItem key={ref}>
-						<button onClick={() => setFont(ref)} className='p-3 cursor-pointer'>
+						<button
+							onClick={() => setFont(ref)}
+							className='px-4 py-3 cursor-pointer'
+						>
 							{label}
 						</button>
 					</MenuItem>
